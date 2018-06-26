@@ -4,7 +4,7 @@ from db import users_db # Импортируем базу данных
 
 @bot.message_handler(commands=['help'])
 def send_help(message):
-        bot.send_message(message.chat.id, HELLO_MESSAGE)
+        bot.send_message(message.chat.id, HELP_MESSAGE)
 
 @bot.message_handler(commands=['start']) # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):

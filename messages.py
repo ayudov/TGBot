@@ -2,4 +2,4 @@ HELLO_MESSAGE = 'Добро пожаловать в бот!\nДля больше
 HELLO_AGAIN_MESSAGE = 'Снова привет!)'
 ANSWER = 'Староста петух:) (Не Андрей Юдов) :)'
 HELP_MESSAGE = 'Этот бот работает 24/7 в режиме бета-версии\nПо всем вопросам писать @AndreyYudov(https://t.me/AndreyYudov)'
-ELSE_ANSWER = 'Здравствуй, друг!\nНаписано @AndreyYudov(https://t.me/AndreyYudov)\n(Хочешь прикол - напиши "Тополиный пух")'
+ELSE_ANSWER = 'Здравствуй, друг!\nНаписано @AndreyYudov (https://t.me/AndreyYudov)\n(Хочешь прикол - напиши "Тополиный пух")'
