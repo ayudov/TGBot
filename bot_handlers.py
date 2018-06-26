@@ -20,7 +20,7 @@ def send_welcome(message):
 
 @bot.message_handler(content_types=["text"]) # Любой текст
 def repeat_all_messages(message):
-    if message.text == 'Тополиный пух':
+    if message.text == 'Тополиный пух' or 'тополиный пух':
         bot.send_message(message.chat.id, ANSWER)
     else:
         bot.send_message(message.chat.id, ELSE_ANSWER)
