@@ -1,4 +1,4 @@
-HELLO_MESSAGE = 'Добро пожаловать в бот!\n(Beta version)'
+HELLO_MESSAGE = 'Добро пожаловать в бот!\nДля большей информации используйте команду /help\n(Beta version)'
 HELLO_AGAIN_MESSAGE = 'Снова привет!)'
 ANSWER = 'Староста петух:) (Не Андрей Юдов) :)'
 HELP_MESSAGE = 'Этот бот работает 24/7 в режиме бета-версии\nПо всем вопросам писать @AndreyYudov(https://t.me/AndreyYudov)'
