@@ -1,0 +1,2 @@
+TOKEN = '561335844:AAEAf8yWaSqYsf0ZBMm6Egk2LbT4xeCnCzc'
+APP_NAME = 'andreytgbot1'
