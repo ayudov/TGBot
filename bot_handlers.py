@@ -26,6 +26,12 @@ def repeat_all_messages(message):
     else:
         bot.send_message(message.chat.id, ELSE_ANSWER)
 
+@bot.message_handler(commands = ['url'])
+def url(message):
+    markup = types.InlineKeyboardMarkup()
+    btn_my_site= types.InlineKeyboardButton(text='Наш сайт', url='https://habrahabr.ru')
+    markup.add(btn_my_site)
+    bot.send_message(message.chat.id, "Нажми на кнопку и перейди на наш сайт.", reply_markup = markup)
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
