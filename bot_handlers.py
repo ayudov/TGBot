@@ -8,9 +8,9 @@ from telebot import types
 def send_help(message):
         bot.send_message(message.chat.id, HELP_MESSAGE)
 
-@bot.message_handler(commands=['start']) # Выполняется, когда пользователь нажимает на start
-def send_welcome(message):
-        bot.send_message(message.chat.id, HELLO_MESSAGE)
+#@bot.message_handler(commands=['start']) # Выполняется, когда пользователь нажимает на start
+#def send_welcome(message):
+ #       bot.send_message(message.chat.id, HELLO_MESSAGE)
 #    # Если пользователя нет в базе
 #    if not users_db.find_one({"chat_id": message.chat.id}):
 #        users_db.insert_one({"chat_id" : message.chat.id})
@@ -27,7 +27,7 @@ def repeat_all_messages(message):
     else:
         bot.send_message(message.chat.id, ELSE_ANSWER)
 
-@bot.message_handler(commands = ['button'])
+@bot.message_handler(commands = ['start'])
 def inline(message):
     key = types.InlineKeyboardMarkup()
     but_1 = types.InlineKeyboardButton(text = "Android", callback_data="Android pressed")
