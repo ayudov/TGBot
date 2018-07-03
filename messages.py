@@ -1,5 +1,5 @@
 HELLO_MESSAGE = 'Добро пожаловать в бот!\nДля большей информации используйте команду /help\n(Beta version)'
 HELLO_AGAIN_MESSAGE = 'Снова привет!)'
-ANSWER = 'Староста петух:) (Не Андрей Юдов) :)'
+ANSWER = 'Староста петух:) (НЕ Андрей Юдов) :)'
 HELP_MESSAGE = 'Этот бот работает 24/7 в режиме бета-версии\nПо всем вопросам писать @AndreyYudov (https://t.me/AndreyYudov)'
 ELSE_ANSWER = '"Тут может быть любой текст"\nНаписано @AndreyYudov (https://t.me/AndreyYudov)\n(Хочешь прикол - напиши "Тополиный пух")'
