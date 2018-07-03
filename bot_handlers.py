@@ -26,13 +26,13 @@ def repeat_all_messages(message):
     else:
         bot.send_message(message.chat.id, ELSE_ANSWER)
 
-@bot.message_handler(commands = ['button'])
-def inline(message):
-    key = types.InlineKeyboardMarkup()
-    but_1 = types.InlineKeyboardButton(text = "Android", callback_data="Android pressed")
-    but_2 = types.InlineKeyboardButton(text = "IOS", callback_data="IOS pressed")
-    key.add(but_1,but_2)
-    bot.send_message(message.chat.id, "What is your OS?", reply_markup=key)
+#@bot.message_handler(commands = ['button'])
+#def inline(message):
+    #key = types.InlineKeyboardMarkup()
+    #but_1 = types.InlineKeyboardButton(text = "Android", callback_data="Android pressed")
+    #but_2 = types.InlineKeyboardButton(text = "IOS", callback_data="IOS pressed")
+    #key.add(but_1,but_2)
+    #bot.send_message(message.chat.id, "What is your OS?", reply_markup=key)
 
 
 if __name__ == '__main__':
