@@ -40,6 +40,9 @@ def url(message):
     keyboard.add(button_phone, button_geo)
     bot.send_message(message.chat.id,"Отправь мне свой номер телефона или поделись местоположением, жалкий человечишка!", reply_markup=keyboard)
 
+    if button_phone == True:
+        bot.send_message(message.chat.id, ANSWER)
+
 @bot.message_handler(content_types=["text"]) # Любой текст
 def repeat_all_messages(message):
     if message.text == 'Тополиный пух' or message.text == 'тополиный пух':
