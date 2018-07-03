@@ -30,7 +30,7 @@ def send_welcome(message):
 @bot.message_handler(commands = ['url'])
 def url(message):
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Наш сайт', url='https://habrahabr.ru')
+    btn_my_site= types.InlineKeyboardButton(text='Наш сайт', url='https://docs.google.com/spreadsheets/d/1WJMpdpi8Q6VXC32tAZMSgVceujLJq2HO_gZRMyJV2Pk/edit?usp=sharing')
     markup.add(btn_my_site)
     bot.send_message(message.chat.id, "Нажми на кнопку и перейди на наш сайт.", reply_markup = markup)
 
