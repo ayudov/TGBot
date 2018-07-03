@@ -30,9 +30,15 @@ def send_welcome(message):
 @bot.message_handler(commands = ['url'])
 def url(message):
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Наш сайт', url='https://docs.google.com/spreadsheets/d/1WJMpdpi8Q6VXC32tAZMSgVceujLJq2HO_gZRMyJV2Pk/edit?usp=sharing')
+    btn_my_site= types.InlineKeyboardButton(text='Ссылка на базу данных', url='https://docs.google.com/spreadsheets/d/1WJMpdpi8Q6VXC32tAZMSgVceujLJq2HO_gZRMyJV2Pk/edit?usp=sharing')
     markup.add(btn_my_site)
-    bot.send_message(message.chat.id, "Нажми на кнопку и перейди на наш сайт.", reply_markup = markup)
+    bot.send_message(message.chat.id, "Нажми на кнопку и перейди на сайт.", reply_markup = markup)
+
+    keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+    button_phone = types.KeyboardButton(text="Отправить номер телефона", request_contact=True)
+    button_geo = types.KeyboardButton(text="Отправить местоположение", request_location=True)
+    keyboard.add(button_phone, button_geo)
+    bot.send_message(message.chat.id,т"Отправь мне свой номер телефона или поделись местоположением, жалкий человечишка!", reply_markup=keyboard)
 
 @bot.message_handler(content_types=["text"]) # Любой текст
 def repeat_all_messages(message):
