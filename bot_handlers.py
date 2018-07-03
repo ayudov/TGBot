@@ -1,7 +1,7 @@
 from bot import bot # Импортируем объект бота
 from messages import * # Инмпортируем все с файла сообщений
 from db import users_db # Импортируем базу данных
-import bot
+#import bot
 
 @bot.message_handler(commands=['help'])
 def send_help(message):
