@@ -29,16 +29,18 @@ print(bot.get_me())
 
 @bot.message_handler(commands=['help'])
 def send_help(message):
-        bot.send_message(message.chat.id, HELP_MESSAGE)
+    bot.send_message(message.chat.id, HELP_MESSAGE)
 
-@bot.message_handler(commands=['start']) # Выполняется, когда пользователь нажимает на start
+
+@bot.message_handler(commands=['start'])  # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
     user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
-    user_markup.row('Помощь', 'Добавить себя', 'Получить ссылку', 'Найти всё по ID пользователя')
+    user_markup.row('Помощь', 'Добавить себя в таблицу', 'Получить ссылку на Google spreadsheet')
 
     bot.send_message(message.chat.id, HELLO_MESSAGE, reply_markup=user_markup)
 
- @bot.message_handler(content_types=["text"]) # Любой текст
+
+@bot.message_handler(content_types=["text"]) # Любой текст
  def repeat_all_messages(message):
      if message.text == 'Тополиный пух' or message.text == 'тополиный пух':
         bot.send_message(message.chat.id, ANSWER)
