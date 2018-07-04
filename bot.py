@@ -5,3 +5,5 @@ import config # подключаем конфиг, чтобы взять с не
 
 bot = telebot.TeleBot(config.TOKEN)
 print(bot.get_me())
+
+user_markup = telebot.types.ReplyKeyboardMarkup(True)

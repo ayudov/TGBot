@@ -1,4 +1,5 @@
 from bot import bot # Импортируем объект бота
+from bot import user_markup
 from messages import * # Инмпортируем все с файла сообщений
 from db import users_db # Импортируем базу данных
 from telebot import types
@@ -10,45 +11,35 @@ def send_help(message):
 
 @bot.message_handler(commands=['start']) # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
+        user_markup.row('Помощь', 'Получить ссылку на Google spreadsheet')
+
+        bot.send_message(message.chat.id, HELLO_MESSAGE, reply_markup=user_markup)
+
+        '''key = types.InlineKeyboardMarkup()
+        but_1 = types.InlineKeyboardButton(text="Android", callback_data="Android pressed")
+        but_2 = types.InlineKeyboardButton(text="IOS", callback_data="IOS pressed")
+        key.add(but_1, but_2)
+        bot.send_message(message.chat.id, "What is your OS?", reply_markup=key)'''
+
+
+'''    # Если пользователя нет в базе
+    if not users_db.find_one({"chat_id": message.chat.id}):
+        users_db.insert_one({"chat_id" : message.chat.id})
         bot.send_message(message.chat.id, HELLO_MESSAGE)
-
-        #key = types.InlineKeyboardMarkup()
-        #but_1 = types.InlineKeyboardButton(text="Android", callback_data="Android pressed")
-        #but_2 = types.InlineKeyboardButton(text="IOS", callback_data="IOS pressed")
-        #key.add(but_1, but_2)
-        #bot.send_message(message.chat.id, "What is your OS?", reply_markup=key)
+    # Если пользователь есть в базе
+    else:
+        bot.send_message(message.chat.id, HELLO_AGAIN_MESSAGE)'''
 
 
-#    # Если пользователя нет в базе
-#    if not users_db.find_one({"chat_id": message.chat.id}):
-#        users_db.insert_one({"chat_id" : message.chat.id})
-#        bot.send_message(message.chat.id, HELLO_MESSAGE)
-#    # Если пользователь есть в базе
-#    else:
-#        bot.send_message(message.chat.id, HELLO_AGAIN_MESSAGE)
-
-@bot.message_handler(commands = ['url'])
-def url(message):
-    markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Ссылка на базу данных', url='https://docs.google.com/spreadsheets/d/1WJMpdpi8Q6VXC32tAZMSgVceujLJq2HO_gZRMyJV2Pk/edit?usp=sharing')
-    markup.add(btn_my_site)
-    bot.send_message(message.chat.id, "Нажми на кнопку и перейди на сайт.", reply_markup = markup)
-
-    keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-    button_phone = types.KeyboardButton(text="Отправить номер телефона", request_contact=True)
-    button_geo = types.KeyboardButton(text="Отправить местоположение", request_location=True)
-    keyboard.add(button_phone, button_geo)
-    bot.send_message(message.chat.id,"Отправь мне свой номер телефона или поделись местоположением, жалкий человечишка!", reply_markup=keyboard)
-
-    if button_phone == True:
-        bot.send_message(message.chat.id, ANSWER)
 
 @bot.message_handler(content_types=["text"]) # Любой текст
 def repeat_all_messages(message):
     if message.text == 'Тополиный пух' or message.text == 'тополиный пух':
         bot.send_message(message.chat.id, ANSWER)
+    elif message.text == "Получить ссылку на Google spreadsheet":
+        bot.send_message(message.chat.id, URL_MESSAGE)
     else:
-        bot.send_message(message.chat.id, ELSE_ANSWER)
+        bot.send_message(message.chat.id,ELSE_ANSWER)
 
 
 
