@@ -56,7 +56,7 @@ def repeat_all_messages(message):
     elif message.text == "Главное меню":
         send_welcome(message)
     else:
-        bot.send_message(message.chat.id, ELSE_ANSWER)
+        bot.send_message(message.chat.id, ELSE_ANSWER, reply_markup=user_markup_back)
 
 
 if __name__ == '__main__':
