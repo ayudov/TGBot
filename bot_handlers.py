@@ -38,8 +38,8 @@ def repeat_all_messages(message):
         bot.send_message(message.chat.id, ANSWER)
     elif message.text == "Получить ссылку на Google spreadsheet":
         bot.send_message(message.chat.id, URL_MESSAGE)
-    else:
-        bot.send_message(message.chat.id,ELSE_ANSWER)
+    elif message.text == "Помощь":
+        bot.send_message(message.chat.id,HELP_MESSAGE)
 
 
 

@@ -2,5 +2,5 @@ HELLO_MESSAGE = 'Добро пожаловать в бот!\nДля больше
 HELLO_AGAIN_MESSAGE = 'Снова привет!)'
 ANSWER = 'Староста петух:) (НЕ Андрей Юдов) :)'
 HELP_MESSAGE = 'Этот бот работает 24/7 в режиме бета-версии\nПо всем вопросам писать @AndreyYudov (https://t.me/AndreyYudov)'
-ELSE_ANSWER = '"Тут может быть любой текст"\nНаписано @AndreyYudov (https://t.me/AndreyYudov)\n(Хочешь прикол - напиши "Тополиный пух")'
+ELSE_ANSWER = 'Пожалуйста, используйте кнопки, или команды\n(Хочешь прикол - напиши "Тополиный пух")'
 URL_MESSAGE = 'Держи ссылку на Google Spreadsheet\n(Только просмотр)\nhttps://docs.google.com/spreadsheets/d/1WJMpdpi8Q6VXC32tAZMSgVceujLJq2HO_gZRMyJV2Pk/edit?usp=sharing '
