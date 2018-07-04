@@ -1,4 +1,4 @@
-HELLO_MESSAGE = 'Добро пожаловать в бот!\nЭтот бот ведет учет информации о пользователях в Google Spreadsheets\nДля большей информации используйте команду /help\n(Beta version)'
+HELLO_MESSAGE = 'Добро пожаловать в бот!\nЭтот бот ведет учёт информации о пользователях в Google Spreadsheets\nДля большей информации используйте команду /help\n(Beta version)'
 HELLO_AGAIN_MESSAGE = 'Снова привет!)'
 ANSWER = 'Староста петух:) (НЕ Андрей Юдов) :)'
 HELP_MESSAGE = 'Этот бот работает 24/7 в режиме бета-версии\nПо всем вопросам писать @AndreyYudov (https://t.me/AndreyYudov)\n'
