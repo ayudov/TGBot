@@ -42,13 +42,13 @@ def send_welcome(message):
 
 @bot.message_handler(content_types=["text"]) # Любой текст
  def repeat_all_messages(message):
-     if message.text == 'Тополиный пух' or message.text == 'тополиный пух':
+    if message.text == 'Тополиный пух' or message.text == 'тополиный пух':
         bot.send_message(message.chat.id, ANSWER)
-     elif message.text == "Получить ссылку на Google spreadsheet":
+    elif message.text == "Получить ссылку на Google spreadsheet":
         bot.send_message(message.chat.id, URL_MESSAGE)
-     elif message.text == "Помощь":
+    elif message.text == "Помощь":
         bot.send_message(message.chat.id,HELP_MESSAGE)
-     elif message.text == "Добавить себя в таблицу":
+    elif message.text == "Добавить себя в таблицу":
         sheet.append_row([str(message.chat.id), str(message.from_user.id), str(message.from_user.first_name), str(message.from_user.last_name), str(message.from_user.username)])
         bot.send_message(message.chat.id, 'Ваш id был добавлен')
 
