@@ -42,18 +42,18 @@ def send_welcome(message):
 def repeat_all_messages(message):
     if message.text == 'Тополиный пух' or message.text == 'тополиный пух':
         bot.send_message(message.chat.id, ANSWER)
-    elif message.text == "Получить ссылку на Google spreadsheet":
+    elif message.text == "Получить ссылку":
         bot.send_message(message.chat.id, URL_MESSAGE)
     elif message.text == "Помощь":
         bot.send_message(message.chat.id,HELP_MESSAGE)
-    elif message.text == "Добавить себя в таблицу":
+    elif message.text == "Добавить себя":
         sheet.append_row([str(message.chat.id), str(message.from_user.id), str(message.from_user.first_name), str(message.from_user.last_name), str(message.from_user.username)])
         bot.send_message(message.chat.id, 'Ваш id был добавлен')
     elif message.text == "Найти всё по ID пользователя":
         user_markup_find = telebot.types.ReplyKeyboardMarkup(True, True)
         user_markup_find.row('Главное меню')
-        bot.send_message(message.chat.id, reply_markup=user_markup_find)
-        bot.send_message(message.chat.id, 'Перешел в пункт поиска пользователей')
+        bot.send_message(message.chat.id, 'Перешел в пункт поиска пользователей', reply_markup=user_markup_find)
+        #bot.send_message(message.chat.id, 'Перешел в пункт поиска пользователей')
 
     elif message.text == "Главное меню":
         send_welcome(message)
