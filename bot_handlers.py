@@ -3,11 +3,13 @@ from messages import * # Инмпортируем все с файла сооб�
 from db import users_db # Импортируем базу данных
 import telebot
 import config
+from telebot import types
+
 
 #Настройка бота
 bot = telebot.TeleBot(config.TOKEN)
 print(bot.get_me())
-#---
+#----------
 
 @bot.message_handler(commands=['help'])
 def send_help(message):
@@ -19,23 +21,6 @@ def send_welcome(message):
     user_markup.row('Помощь', 'Получить ссылку на Google spreadsheet')
 
     bot.send_message(message.chat.id, HELLO_MESSAGE, reply_markup=user_markup)
-
-        '''key = types.InlineKeyboardMarkup()
-        but_1 = types.InlineKeyboardButton(text="Android", callback_data="Android pressed")
-        but_2 = types.InlineKeyboardButton(text="IOS", callback_data="IOS pressed")
-        key.add(but_1, but_2)
-        bot.send_message(message.chat.id, "What is your OS?", reply_markup=key)'''
-
-
-'''    # Если пользователя нет в базе
-    if not users_db.find_one({"chat_id": message.chat.id}):
-        users_db.insert_one({"chat_id" : message.chat.id})
-        bot.send_message(message.chat.id, HELLO_MESSAGE)
-    # Если пользователь есть в базе
-    else:
-        bot.send_message(message.chat.id, HELLO_AGAIN_MESSAGE)'''
-
-
 
 @bot.message_handler(content_types=["text"]) # Любой текст
 def repeat_all_messages(message):
