@@ -11,9 +11,10 @@ def send_help(message):
 
 @bot.message_handler(commands=['start']) # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
-        user_markup.row('Помощь', 'Получить ссылку на Google spreadsheet')
+    user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
+    user_markup.row('Помощь', 'Получить ссылку на Google spreadsheet')
 
-        bot.send_message(message.chat.id, HELLO_MESSAGE, reply_markup=user_markup)
+    bot.send_message(message.chat.id, HELLO_MESSAGE, reply_markup=user_markup)
 
         '''key = types.InlineKeyboardMarkup()
         but_1 = types.InlineKeyboardButton(text="Android", callback_data="Android pressed")
