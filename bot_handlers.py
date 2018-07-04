@@ -52,6 +52,7 @@ def repeat_all_messages(message):
     elif message.text == "Найти всё по ID пользователя":
         user_markup_find = telebot.types.ReplyKeyboardMarkup(True, True)
         user_markup_find.row('Главное меню')
+        bot.send_message(message.chat.id, reply_markup=user_markup_find)
         bot.send_message(message.chat.id, 'Перешел в пункт поиска пользователей')
 
     elif message.text == "Главное меню":
