@@ -18,7 +18,7 @@ sheet = client.open('TGTest').sheet1
 
 #md = sheet.get_all_records()
 
-sheet.append_row(['111', '222'])
+#sheet.append_row(['111', '222'])
 #----------
 
 
@@ -47,6 +47,8 @@ def repeat_all_messages(message):
     elif message.text == "Помощь":
         bot.send_message(message.chat.id,HELP_MESSAGE)
     elif message.text == "Добавить себя в таблицу":
+        sheet.append_row(['111', '222'])
+        bot.send_message(message.chat.id, 'Ваш id был добавлен')
 
 
 
