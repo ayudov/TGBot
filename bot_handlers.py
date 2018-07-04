@@ -35,7 +35,7 @@ def send_help(message):
 @bot.message_handler(commands=['start'])  # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
     user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
-    user_markup.row('Помощь', 'Добавить себя в таблицу', 'Получить ссылку на Google spreadsheet')
+    user_markup.row('Помощь', 'Добавить себя', 'Получить ссылку')
 
     bot.send_message(message.chat.id, HELLO_MESSAGE, reply_markup=user_markup)
 
@@ -46,13 +46,13 @@ def repeat_all_messages(message):
     user_markup_back.row('Главное меню')
     if message.text == 'Тополиный пух' or message.text == 'тополиный пух':
         bot.send_message(message.chat.id, ANSWER, reply_markup=user_markup_back)
-    elif message.text == "Получить ссылку на Google spreadsheet":
+    elif message.text == "Получить ссылку":
         bot.send_message(message.chat.id, URL_MESSAGE, reply_markup=user_markup_back)
     elif message.text == "Помощь":
         bot.send_message(message.chat.id,HELP_MESSAGE, reply_markup=user_markup_back)
-    elif message.text == "Добавить себя в таблицу":
+    elif message.text == "Добавить себя":
         sheet.append_row([str(message.chat.id), str(message.from_user.id), str(message.from_user.first_name), str(message.from_user.last_name), str(message.from_user.username)])
-        bot.send_message(message.chat.id, 'Ваш id был добавлен\n/start', reply_markup=user_markup_back)
+        bot.send_message(message.chat.id, 'Ваша информация была добавлена', reply_markup=user_markup_back)
     elif message.text == "Главное меню":
         send_welcome(message)
     else:
