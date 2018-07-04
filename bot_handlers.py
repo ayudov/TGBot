@@ -42,15 +42,19 @@ def send_welcome(message):
 
 @bot.message_handler(content_types=["text"]) # Любой текст
 def repeat_all_messages(message):
+    user_markup_back = telebot.types.ReplyKeyboardMarkup(True, True)
+    user_markup_back.row('Главное меню')
     if message.text == 'Тополиный пух' or message.text == 'тополиный пух':
-        bot.send_message(message.chat.id, ANSWER)
+        bot.send_message(message.chat.id, ANSWER, reply_markup=user_markup_back)
     elif message.text == "Получить ссылку на Google spreadsheet":
-        bot.send_message(message.chat.id, URL_MESSAGE)
+        bot.send_message(message.chat.id, URL_MESSAGE, reply_markup=user_markup_back)
     elif message.text == "Помощь":
-        bot.send_message(message.chat.id,HELP_MESSAGE)
+        bot.send_message(message.chat.id,HELP_MESSAGE, reply_markup=user_markup_back)
     elif message.text == "Добавить себя в таблицу":
         sheet.append_row([str(message.chat.id), str(message.from_user.id), str(message.from_user.first_name), str(message.from_user.last_name), str(message.from_user.username)])
-        bot.send_message(message.chat.id, 'Ваш id был добавлен\n/start')
+        bot.send_message(message.chat.id, 'Ваш id был добавлен\n/start', reply_markup=user_markup_back)
+    elif message.text == "Главное меню":
+        send_welcome(message)
     else:
         bot.send_message(message.chat.id, ELSE_ANSWER)
 
