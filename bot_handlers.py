@@ -51,6 +51,8 @@ def repeat_all_messages(message):
     elif message.text == "Добавить себя в таблицу":
         sheet.append_row([str(message.chat.id), str(message.from_user.id), str(message.from_user.first_name), str(message.from_user.last_name), str(message.from_user.username)])
         bot.send_message(message.chat.id, 'Ваш id был добавлен')
+    else:
+        bot.send_message(message.chat.id, ELSE_ANSWER)
 
 
 if __name__ == '__main__':
