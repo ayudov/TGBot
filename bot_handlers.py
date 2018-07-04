@@ -1,9 +1,9 @@
 from bot import bot # Импортируем объект бота
-#from bot import user_markup
+from bot import user_markup
 from messages import * # Инмпортируем все с файла сообщений
 from db import users_db # Импортируем базу данных
 #from telebot import types
-import telebot
+
 #import bot
 
 @bot.message_handler(commands=['help'])
@@ -12,7 +12,7 @@ def send_help(message):
 
 @bot.message_handler(commands=['start']) # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
-    user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
+    user_markup = user_markup
     user_markup.row('Помощь', 'Получить ссылку на Google spreadsheet')
 
     bot.send_message(message.chat.id, HELLO_MESSAGE, reply_markup=user_markup)
