@@ -3,6 +3,7 @@ from bot import user_markup
 from messages import * # Инмпортируем все с файла сообщений
 from db import users_db # Импортируем базу данных
 from telebot import types
+import telebot
 #import bot
 
 @bot.message_handler(commands=['help'])
