@@ -41,7 +41,7 @@ def send_welcome(message):
 
 
 @bot.message_handler(content_types=["text"]) # Любой текст
- def repeat_all_messages(message):
+def repeat_all_messages(message):
     if message.text == 'Тополиный пух' or message.text == 'тополиный пух':
         bot.send_message(message.chat.id, ANSWER)
     elif message.text == "Получить ссылку на Google spreadsheet":
