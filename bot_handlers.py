@@ -4,6 +4,22 @@ from db import users_db # Импортируем базу данных
 import telebot
 import config
 from telebot import types
+import gspread
+
+
+#Подключение Google drive
+from oauth2client.service_account import ServiceAccountCredentials
+
+scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+client = gspread.authorize(creds)
+
+sheet = client.open('TGTest').sheet1
+
+#md = sheet.get_all_records()
+
+sheet.append_row(['111', '222'])
+#----------
 
 
 #Настройка бота
@@ -18,7 +34,7 @@ def send_help(message):
 @bot.message_handler(commands=['start']) # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
     user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
-    user_markup.row('Помощь', 'Получить ссылку на Google spreadsheet')
+    user_markup.row('Помощь','Добавить себя в таблицу', 'Получить ссылку на Google spreadsheet')
 
     bot.send_message(message.chat.id, HELLO_MESSAGE, reply_markup=user_markup)
 
@@ -30,6 +46,7 @@ def repeat_all_messages(message):
         bot.send_message(message.chat.id, URL_MESSAGE)
     elif message.text == "Помощь":
         bot.send_message(message.chat.id,HELP_MESSAGE)
+    elif message.text == "Добавить себя в таблицу":
 
 
 
