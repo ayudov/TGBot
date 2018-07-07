@@ -54,7 +54,7 @@ def repeat_all_messages(message):
         sheet.append_row([str(message.chat.id), str(message.from_user.id), str(message.from_user.first_name), str(message.from_user.last_name), str(message.from_user.username)])
         bot.send_message(message.chat.id, 'Ваша информация была добавлена', reply_markup=user_markup_back)
     elif message.text == "Главное меню":
-        send_welcome(message)
+        bot.send_message(message.from_user.id, 'Для начала работы напишите /start@AndreysTelegram666_bot')
     else:
         bot.send_message(message.chat.id, ELSE_ANSWER, reply_markup=user_markup_back)
 
