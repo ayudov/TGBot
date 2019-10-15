@@ -1,2 +1,8 @@
-TOKEN = '561335844:AAEAf8yWaSqYsf0ZBMm6Egk2LbT4xeCnCzc'
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
+TOKEN = os.getenv('TOKEN')
+
+print('your TOKEN:' + TOKEN)
 APP_NAME = 'andreytgbot1'
